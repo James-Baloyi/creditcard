@@ -1,0 +1,13 @@
+name: Credit Card Validator Action
+
+on: [push]
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build Docker image
+      run: docker build -t creditcard/image .
+    - name: Run Docker image
+      run: docker run --rm -it -p 8080:8080 -v "`pwd`/../src:/src" -v "`pwd`/../data:/data" -w /src docker.io/creditcard/image

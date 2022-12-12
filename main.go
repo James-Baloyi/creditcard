@@ -56,7 +56,7 @@ func ValidateCreditCard(w http.ResponseWriter, r *http.Request) {
 
 	} else {
 		res := &ErrorStruct{
-			Error: "Credit card number must be numeric",
+			Error: "Credit card number must be numeric.",
 		}
 
 		content, _ := json.Marshal(res)
